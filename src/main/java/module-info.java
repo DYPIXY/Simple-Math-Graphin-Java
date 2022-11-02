@@ -1,7 +1,7 @@
 module com.simple.graphin {
-    requires javafx.controls;
-    requires javafx.fxml;
+    requires org.knowm.xchart;
 
-    opens com.simple.graphin to javafx.fxml;
     exports com.simple.graphin;
 }
+
+

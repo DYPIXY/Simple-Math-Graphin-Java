@@ -10,6 +10,13 @@
         <maven.compiler.target>11</maven.compiler.target>
     </properties>
     <dependencies>
+
+        <dependency>
+            <groupId>org.knowm.xchart</groupId>
+            <artifactId>xchart</artifactId>
+            <version>3.8.2</version>
+        </dependency>
+
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
@@ -19,6 +26,11 @@
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>
             <version>13</version>
+        </dependency>
+        <dependency>
+            <groupId>de.erichseifert.gral</groupId>
+            <artifactId>gral-core</artifactId>
+            <version>0.11</version>
         </dependency>
     </dependencies>
     <build>
@@ -41,7 +53,7 @@
                         <!-- Usage: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>com.simple.graphin.App</mainClass>
+                            <mainClass>com.simple.graphin.Graph</mainClass>
                         </configuration>
                     </execution>
                 </executions>
