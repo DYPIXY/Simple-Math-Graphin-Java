@@ -1,0 +1,3 @@
+[submodule "matplotlib4j"]
+	path = matplotlib4j
+	url = https://github.com/sh0nk/matplotlib4j.git
