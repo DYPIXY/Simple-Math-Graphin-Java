@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -19,15 +20,14 @@ import com.mindfusion.drawing.SolidBrush;
 //Extends JPanel class 
 public class GraphLineChart extends JPanel{
     String[] functions;
+    String tittle;
 
-    //pass function or functions as an array
+    // Constructor
     public GraphLineChart(String[] functionsArg){
         this.functions = functionsArg;
     }
 
     private static final long serialVersionUID = 1L;
-
-    //the main method of the application
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
@@ -62,7 +62,6 @@ public class GraphLineChart extends JPanel{
         }
         catch (Exception e)
         {
-            // could not parse the expression
             e.printStackTrace();
         }
         return lineChart;

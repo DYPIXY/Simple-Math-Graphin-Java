@@ -14,8 +14,9 @@ public class SimpleGraphing {
     
     }
     public static void main(String[] args){
-        String[] equation = {"3*x*x+2*x+2", "x*2+5"};
-        DrawGraph(1, equation, args);
-
+        String[] equations = {"3*x*x+2*x+2", "x*2+5"};
+        DrawGraph(1, equations, args);
+        //DrawGraphMatLib(equations);
+        //DrawGraphLineChart(equations);
     }
 }
