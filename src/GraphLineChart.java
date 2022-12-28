@@ -21,6 +21,7 @@ import com.mindfusion.drawing.SolidBrush;
 public class GraphLineChart extends JPanel{
     String[] functions;
     String tittle;
+    JFrame f;
 
     // Constructor
     public GraphLineChart(String[] functionsArg){
@@ -42,23 +43,15 @@ public class GraphLineChart extends JPanel{
     }
     private LineChart initializeChart()  {
 	    LineChart lineChart = new LineChart();	
-        List<String> functionsList = new ArrayList<String>();
-        Collections.addAll(functionsList, functions);
-        FunctionSeries series1;
-        FunctionSeries series2;	  
+        FunctionSeries series;	  
+        //add functions to graph
         try
         {			
-        
-            series1 = new FunctionSeries("3*x*x+2*x+2", 1000, -5, 5 );
-            series1.setTitle("Quadratic equation: 3*x*x+2*x+2");
-            lineChart.getSeries().add(series1);
-                
-            //mean value is -2
-            series2 = new FunctionSeries(
-                "-3*x*x+4*x+1", 1000, -5, 5);
-            series2.setTitle("Quadratic equation: -3*x*x+(4*x+1)");
-            lineChart.getSeries().add(series2);
-                
+            for(String i : functions){
+                series = new FunctionSeries(i, 1000, -5, 5 );
+                series.setTitle("Equation: "+i);
+                lineChart.getSeries().add(series);
+            }
         }
         catch (Exception e)
         {
@@ -66,13 +59,19 @@ public class GraphLineChart extends JPanel{
         }
         return lineChart;
     }
+    //show on screen
     protected GraphLineChart() {
-	    JFrame f = new JFrame();
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	    f.setSize(650, 400);
-	    f.setTitle("Java Swing Library for Charts and Gauges: FunctionSeries");		
 	    //add the chart to the ContentPane
 	    f.getContentPane().add(initializeChart(), BorderLayout.CENTER);
         f.setVisible(true);
+    }
+    public void style(){
+        f.setSize(650, 400);
+        f.setTitle("Java Swing Library for Charts and Gauges: FunctionSeries");
+
+    }
+    public static void main() {
+
     }
 }
