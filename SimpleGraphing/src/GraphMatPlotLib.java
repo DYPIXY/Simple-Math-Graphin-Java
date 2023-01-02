@@ -1,3 +1,5 @@
+package SimpleGraphing.src;
+
 import java.util.function.Function;
 
 public class GraphMatPlotLib {

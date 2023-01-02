@@ -1,10 +1,6 @@
+package SimpleGraphing.src;
+
 import java.awt.BorderLayout;
-import java.awt.Color;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -67,6 +63,11 @@ public class GraphLineChart extends JPanel{
         f.setVisible(true);
     }
     public void style(){
+        int weightSize;
+        int heigthSize;
+
+
+
         f.setSize(650, 400);
         f.setTitle("Java Swing Library for Charts and Gauges: FunctionSeries");
 

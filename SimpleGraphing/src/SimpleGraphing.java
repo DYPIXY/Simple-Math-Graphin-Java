@@ -1,3 +1,5 @@
+package SimpleGraphing.src;
+
 public class SimpleGraphing {
     public static void DrawGraph(String GraphType, String[] equation, String[] args) {
         switch(GraphType.toLowerCase()){
