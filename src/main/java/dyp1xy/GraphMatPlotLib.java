@@ -1,4 +1,4 @@
-package dyp1xy;
+package main.java.dyp1xy;
 
 import java.util.function.Function;
 

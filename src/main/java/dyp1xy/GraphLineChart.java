@@ -1,9 +1,8 @@
-package dyp1xy;
+package main.java.dyp1xy;
 
 import java.awt.BorderLayout;
 
 import javax.swing.*;
-import javax.swing.text.Style;
 
 import com.mindfusion.charting.FunctionSeries;
 import com.mindfusion.charting.swing.LineChart;
