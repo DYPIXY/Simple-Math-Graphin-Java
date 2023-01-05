@@ -1,11 +1,9 @@
 package main.java.dyp1xy;
 
-import java.awt.BorderLayout;
-
-import javax.swing.*;
-
 import com.mindfusion.charting.FunctionSeries;
 import com.mindfusion.charting.swing.LineChart;
+import javax.swing.*;
+import java.awt.*;
 
 //Extends JPanel class 
 public class GraphLineChart extends JPanel{

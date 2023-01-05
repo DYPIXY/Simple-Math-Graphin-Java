@@ -9,5 +9,8 @@
         <module name="SimpleGraphing" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="SimpleGraphing" target="19" />
+    </bytecodeTargetLevel>
   </component>
 </project>

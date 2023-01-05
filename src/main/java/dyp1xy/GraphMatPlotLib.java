@@ -1,6 +1,6 @@
 package main.java.dyp1xy;
 
-import java.util.function.Function;
+
 
 public class GraphMatPlotLib {
     String[] equations;
