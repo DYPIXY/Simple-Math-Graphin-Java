@@ -1,4 +1,4 @@
-package SimpleGraphing.src;
+package dyp1xy;
 
 import java.util.function.Function;
 

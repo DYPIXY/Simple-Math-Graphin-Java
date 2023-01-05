@@ -1,7 +1,9 @@
-package SimpleGraphing.src;
+package dyp1xy;
 
 public class SimpleGraphing {
     public static void DrawGraph(String GraphType, String[] equation, String[] args) {
+
+
         switch(GraphType.toLowerCase()){
             case "matplotlib": 
                 GraphMatPlotLib gmpl = new GraphMatPlotLib(equation, args);
@@ -19,7 +21,7 @@ public class SimpleGraphing {
     public static void main(String[] args){
         String[] equations = {"3*x*x+2*x+2", "x*2+5"};
         DrawGraph("camfamdasf", equations, args);
-        //DrawGraphMatLib(equations);\
+        //DrawGraphMatLib(equations);
         //DrawGraphLineChart(equations);
     }
 }
