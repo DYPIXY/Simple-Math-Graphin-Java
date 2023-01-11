@@ -5,7 +5,7 @@ import picocli.CommandLine;
 import java.io.File;
 
 public class Main implements Runnable{
-    @CommandLine.Option(name = "--demo", description = "Show a demo from selected Graph Type using a quadratic and a linear equation")
+    @CommandLine.Option(names = "--demo", description = "Show a demo from selected Graph Type using a quadratic and a linear equation (all other parameters WILL be ignored)")
         boolean demo;
     @CommandLine.Option(names = "-g", description = "The type of the graph, see --help", interactive = true)
         int graphType;
