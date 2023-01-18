@@ -9,29 +9,50 @@ import src.main.dyp1xy.GraphMatPlotLib;
 import src.main.dyp1xy.GraphLineChart;
 import src.main.dyp1xy.GraphSwing;
 
-@Command(name = "simple-graphing", version = "1.0", description = "Java lib to simple graph math functions, can run as a CLI with fewer configuration options")
+@Command(
+        name = "simple-graphing",
+        version = "1.0",
+        description = "Java lib to simple graph math functions, can run as a CLI with fewer configuration options")
+
 public class Main implements Runnable{
     static final String demoFunction = "(x+2) * 2";
-    static final String demoFunction2 = "sex in the city";
+    static final String demoFunction2 = "x 2 + x − 30";
 
     //options and parameters
-    @Option(names = "--demo", description = "Show a demo from selected Graph Type using a quadratic and a linear equation (all other parameters WILL be ignored)")
-    boolean demo;
-    @Option(names = "-g", description = "The type of the graph, see --help", interactive = true)
+    @Option(
+            names = "--demo",
+            description = "Show a demo from selected Graph Type using a quadratic and a linear equation (ALL other parameters EXCEPT '-g' WILL be ignored)")
+        boolean demo;
+    @Option(
+            names = {"-g", "--graphType" },
+            description = "The type of the graph [MatPlotLib, LineChart, Swing] write one of those after '-g'",
+            interactive = true)
         private String graphType;
 
-    @Option(names = {"-s", "--save"}, description = "Save the output graph as an image, default path is .")
+    @Option(
+            names = {"-s", "--save"},
+            description = "Save the output graph as an image, default path is .")
         private boolean save;
 
-    @Option(names = { "-o", "--out" }, paramLabel = "", description = "Where to save the output file" )
+    @Option(
+            names = { "-o", "--out" },
+            description = "Where to save the output file, if only '-s' is declared, save to te current directory, if '-o and -s' not declared, do not save the output"  )
         private String savePath;
     // At least one input
-    @Option(names = "-e --equations", arity = "1..*", description = "one or more equations to graph", interactive = true)
+    @Parameters(
+            index = "0..*",
+            description = "Math functions to graph")
         private String[] equations;
 
-    @Option(names = { "-h", "--help" }, help = true, description = "display a help")
+    @Option(
+            names = { "-h", "--help" },
+            usageHelp = true,
+            description = "Display help")
         private boolean help;
-    @Option(names = {"-v", "--version"}, versionHelp = true, description = "display version")
+    @Option(
+            names = {"-V", "--version"},
+            versionHelp = true,
+            description = "display version")
         private boolean version;
 
     public static void main(String[] args) {
@@ -43,23 +64,20 @@ public class Main implements Runnable{
             return;
         }
         if(commandLine.isUsageHelpRequested()) {
-            
+
         }
 
     }
     @Override
     public void run(){
-
-
+        if(demo){
+            equations[0] = demoFunction;
+            equations[1] = demoFunction2;
+        }
         // if -o especified, them save
         if(savePath != null){
             save = true;
         }
-        //debug reasons
-        if(graphType == null){
-            graphType = "LineChart";
-        }
-
 
         //actual code
         switch(graphType.toLowerCase()){
