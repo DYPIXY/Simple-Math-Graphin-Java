@@ -8,12 +8,14 @@ import java.awt.*;
 //Extends JPanel class 
 public class GraphLineChart extends JPanel{
     //initialize variables
-    String[] functions;
-    final String demoFunction = "(x+2) * 2";
+    String[] functions = {"(x+2) * 2", "x*x + x -30"};
+    //String[] functions;
+    boolean save;
     int width = 650;
     int height = 400;
-    int xMax = 5;
-    int yMax = 30;
+    //how far should X be when graphing
+    int minusRange = -20;
+    int plusRange = 20;
 
     //initialize objects
     boolean visibility = true;
@@ -30,21 +32,16 @@ public class GraphLineChart extends JPanel{
         JFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JFrame.setResizable(true);
 
-        FunctionSeries series;	  
+        FunctionSeries series;
         //add functions to graph
         try
         {
             //if functions array is empty, show a demo function
-            if(functions == null) {
-                series = new FunctionSeries(demoFunction, 1000, -5, 5 );
-                series.setTitle("Equation: " + demoFunction);
+            for (String i : functions) {
+                series = new FunctionSeries(i, 1000, minusRange, plusRange);
+
+                series.setTitle("Equation: " + i);
                 lineChart.getSeries().add(series);
-            } else {
-                for (String i : functions) {
-                    series = new FunctionSeries(i, 1000, -5, 5);
-                    series.setTitle("Equation: " + i);
-                    lineChart.getSeries().add(series);
-                }
             }
         }
         catch (Exception e)
@@ -63,8 +60,8 @@ public class GraphLineChart extends JPanel{
     public void setSize(int width, int height){
         JFrame.setSize(width, height);
     }
-    public void setMaxValue(int xMaxValue, int yMaxValue) {
-
+    public void setCalcRange(int xMaxValue, int yMaxValue) {
+        ;
     }
     public void setTittlesXY(String yTittle, String xTittle) {
 

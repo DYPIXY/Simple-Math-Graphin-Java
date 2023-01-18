@@ -8,6 +8,7 @@ import picocli.CommandLine.Parameters;
 import src.main.dyp1xy.GraphMatPlotLib;
 import src.main.dyp1xy.GraphLineChart;
 import src.main.dyp1xy.GraphSwing;
+import java.util.Arrays;
 
 @Command(
         name = "simple-graphing",
@@ -16,7 +17,7 @@ import src.main.dyp1xy.GraphSwing;
 
 public class Main implements Runnable{
     static final String demoFunction = "(x+2) * 2";
-    static final String demoFunction2 = "x 2 + x − 30";
+    static final String demoFunction2 = "x*x + x − 30";
 
     //options and parameters
     @Option(
@@ -70,7 +71,9 @@ public class Main implements Runnable{
     }
     @Override
     public void run(){
+        //some checks
         if(demo){
+            Arrays.fill(equations, null);
             equations[0] = demoFunction;
             equations[1] = demoFunction2;
         }
@@ -78,20 +81,9 @@ public class Main implements Runnable{
         if(savePath != null){
             save = true;
         }
+        //pass arguments to static variables on SimpleGraphing.java
+        SimpleGraphing.savePath = savePath;
+        SimpleGraphing.saveImage = save;
 
-        //actual code
-        switch(graphType.toLowerCase()){
-            case "matplotlib":
-                GraphMatPlotLib gmpl = new GraphMatPlotLib(equations);
-                break;
-            case "linechart":
-                GraphLineChart glc = new GraphLineChart(equations);
-                break;
-            case "swing":
-                GraphSwing gs = new GraphSwing(equations);
-                break;
-            default:
-                throw new IllegalArgumentException("Wrong GraphType input, see a tutorial on: https://github.com/DYPIXY/Simple-Math-Graphin-Java");
-        }
     }
 }

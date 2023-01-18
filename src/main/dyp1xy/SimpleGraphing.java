@@ -1,9 +1,23 @@
 package src.main.dyp1xy;
 
 public class SimpleGraphing {
-    //this is the way people will implement this lib to their program
-    //@TODO make it a package for linux distributions as a simple way to graph things, and make a method for each way of graph
-    public static void DrawGraph() {
+    static boolean saveImage;
+    static String savePath = ".";
+
+    public static void DrawGraph(String graphType, String[] equations) {
+        switch(graphType.toLowerCase()){
+            case "matplotlib":
+                GraphMatPlotLib gmpl = new GraphMatPlotLib(equations);
+
+            case "linechart":
+                GraphLineChart glc = new GraphLineChart(equations);
+                break;
+            case "swing":
+                GraphSwing gs = new GraphSwing(equations);
+                break;
+            default:
+                throw new IllegalArgumentException("Wrong GraphType input, see a tutorial on: https://github.com/DYPIXY/Simple-Math-Graphin-Java");
+        }
         System.out.println("Ao verme\n" +
                 "que\n" +
                 "primeiro roeu as frias carnes\n" +
@@ -16,8 +30,14 @@ public class SimpleGraphing {
     }
     public static void main(String[] args){
         String[] equations = {"3*x*x+2*x+2", "x*2+5"};
-        DrawGraph();
-        //DrawGraphMatLib(equations);
-        //DrawGraphLineChart(equations);
+        DrawGraph("linechart",equations);
     }
+    //static getters and setters
+    static public void setSave(boolean save){
+        saveImage = save;
+    }
+    static public void setSavePath(String path) {
+        savePath = path;
+    }
+
 }
