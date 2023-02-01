@@ -57,22 +57,6 @@ public class GraphLineChart extends JPanel{
         JFrame.setVisible(true);
     }
     //getters and setters
-    public void setSize(int width, int height){
-        JFrame.setSize(width, height);
-    }
-    public void setCalcRange(int xMaxValue, int yMaxValue) {
-        ;
-    }
-    public void setTittlesXY(String yTittle, String xTittle) {
-
-    }
-    public String getTittlesXY(){
-        return "Temp return";
-    }
-    public void setTittle(String Tittle) { }
-    public void setLegendVisibility(boolean Visibility){
-        this.visibility = Visibility;
-    }
     //main method
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
@@ -85,5 +69,21 @@ public class GraphLineChart extends JPanel{
                 }
             }
         });
+    }
+    public void setSize(int width, int height){
+        JFrame.setSize(width, height);
+    }
+    public void setCalcRange(int minusRange, int plusRange) {
+        
+    }
+    public void setTittlesXY(String yTittle, String xTittle) {
+
+    }
+    public String getTittlesXY(){
+        return "Temp return";
+    }
+    public void setTittle(String Tittle) { }
+    public void setLegendVisibility(boolean Visibility){
+        this.visibility = Visibility;
     }
 }

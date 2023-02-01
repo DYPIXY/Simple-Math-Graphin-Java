@@ -5,9 +5,6 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 import picocli.CommandLine.Parameters;
-import src.main.dyp1xy.GraphMatPlotLib;
-import src.main.dyp1xy.GraphLineChart;
-import src.main.dyp1xy.GraphSwing;
 import java.util.Arrays;
 
 @Command(
@@ -26,8 +23,7 @@ public class Main implements Runnable{
         boolean demo;
     @Option(
             names = {"-g", "--graphType" },
-            description = "The type of the graph [MatPlotLib, LineChart, Swing] write one of those after '-g'",
-            interactive = true)
+            description = "The type of the graph [MatPlotLib, LineChart, Swing]")
         private String graphType;
 
     @Option(
@@ -60,17 +56,14 @@ public class Main implements Runnable{
         CommandLine.run(new Main(), args);
         CommandLine commandLine = new CommandLine(new Main());
         commandLine.parseArgs(args);
-        if (commandLine.isVersionHelpRequested()) {
-            commandLine.printVersionHelp(System.out);
-            return;
-        }
-        if(commandLine.isUsageHelpRequested()) {
-
-        }
-
     }
     @Override
     public void run(){
+        if (graphType == null && System.console() != null) {
+            // alternatively, use Console::readPassword
+            graphType = System.console().readLine("Enter value for --graphType [MatPotLib, LineChart, Swing]: ");
+        }
+        System.out.println("You provided value '" + graphType + "' for graph type");
         //some checks
         if(demo){
             Arrays.fill(equations, null);
@@ -81,9 +74,10 @@ public class Main implements Runnable{
         if(savePath != null){
             save = true;
         }
-        //pass arguments to static variables on SimpleGraphing.java
+        //pass arguments to static variables on SimpleGraphing and then run it
         SimpleGraphing.savePath = savePath;
         SimpleGraphing.saveImage = save;
+        SimpleGraphing.DrawGraph(graphType, equations);
 
     }
 }

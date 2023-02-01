@@ -5,39 +5,34 @@ public class SimpleGraphing {
     static String savePath = ".";
 
     public static void DrawGraph(String graphType, String[] equations) {
-        switch(graphType.toLowerCase()){
+        switch (graphType.toLowerCase()){
             case "matplotlib":
-                GraphMatPlotLib gmpl = new GraphMatPlotLib(equations);
-
+                GraphMatPlotLib graphMatPlotLib = new GraphMatPlotLib(equations);
+                break;
             case "linechart":
-                GraphLineChart glc = new GraphLineChart(equations);
+                GraphLineChart graphLineChart = new GraphLineChart(equations);
                 break;
             case "swing":
-                GraphSwing gs = new GraphSwing(equations);
+                GraphSwing graphSwing = new GraphSwing(equations);
                 break;
+            //hidden
+            case "assis":
+                System.out.println("Ao verme que primeiro roeu as frias carnes do meu cadáver dedico como saudosa lembrança estas Memórias Póstumas");
+                System.exit(0);
             default:
-                throw new IllegalArgumentException("Wrong GraphType input, see a tutorial on: https://github.com/DYPIXY/Simple-Math-Graphin-Java");
+                System.out.println("Wrong GraphType input, see a tutorial on: https://github.com/DYPIXY/Simple-Math-Graphin-Java. If you ran on CLI mode, use --help instead");
+                System.exit(1);
         }
-        System.out.println("Ao verme\n" +
-                "que\n" +
-                "primeiro roeu as frias carnes\n" +
-                "do meu cadáver\n" +
-                "dedico\n" +
-                "como saudosa lembrança\n" +
-                "estas\n" +
-                "Memórias Póstumas");
     
-    }
-    public static void main(String[] args){
-        String[] equations = {"3*x*x+2*x+2", "x*2+5"};
-        DrawGraph("linechart",equations);
     }
     //static getters and setters
     static public void setSave(boolean save){
         saveImage = save;
     }
+    static public boolean getSave() { return saveImage; }
     static public void setSavePath(String path) {
         savePath = path;
     }
+    static public String getSavePath(){ return savePath; }
 
 }
