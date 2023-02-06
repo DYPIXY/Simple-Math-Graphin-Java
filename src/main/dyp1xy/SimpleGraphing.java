@@ -1,5 +1,5 @@
 package src.main.dyp1xy;
-
+import src.main.dyp1xy.*;
 public class SimpleGraphing {
     static boolean saveImage;
     static String savePath = ".";
@@ -8,9 +8,11 @@ public class SimpleGraphing {
         switch (graphType.toLowerCase()){
             case "matplotlib":
                 GraphMatPlotLib graphMatPlotLib = new GraphMatPlotLib(equations);
+                graphMatPlotLib.main();
                 break;
             case "linechart":
                 GraphLineChart graphLineChart = new GraphLineChart(equations);
+                graphLineChart.main();
                 break;
             case "swing":
                 GraphSwing graphSwing = new GraphSwing(equations);
@@ -25,6 +27,7 @@ public class SimpleGraphing {
         }
     
     }
+
     //static getters and setters
     static public void setSave(boolean save){
         saveImage = save;
