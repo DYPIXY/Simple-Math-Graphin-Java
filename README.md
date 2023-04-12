@@ -8,7 +8,7 @@ A Simple Math XY plot graphing with three options
     A commercial chart lib, have watermarks but is more stable.
 > Custom made, 
     The worst, but the simplest 
-# going to update it after completed, or when i get bored from it, whatever comes first
+# going to update README after completed, or when i get bored from it, whatever comes first
     
 
 
